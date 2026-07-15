@@ -33,6 +33,33 @@
             --kbo-light: #2d2d44;
         }
 
+        /* ===== 폰에서 버튼 터치 문제 해결 ===== */
+button,
+.team-card,
+.stadium-card,
+.favorite-btn-banner,
+.jamsil-toggle-detail button,
+.toggle-btn,
+.lang-btn,
+.dark-toggle,
+.login-status,
+.submit-btn,
+.my-btn,
+.auth-submit,
+.admin-toggle-btn,
+.admin-login button,
+.back-btn,
+.kbo-btn,
+.food-more-btn,
+nav button,
+.team-option,
+.visit-item {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
         /* ===== RESET ===== */
         * {
             margin: 0;
