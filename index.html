@@ -33,6 +33,33 @@
             --kbo-light: #2d2d44;
         }
 
+        /* ===== 폰 터치 최적화 ===== */
+        button,
+        .team-card,
+        .stadium-card,
+        .favorite-btn-banner,
+        .jamsil-toggle-detail button,
+        .toggle-btn,
+        .lang-btn,
+        .dark-toggle,
+        .login-status,
+        .submit-btn,
+        .my-btn,
+        .auth-submit,
+        .admin-toggle-btn,
+        .admin-login button,
+        .back-btn,
+        .kbo-btn,
+        .food-more-btn,
+        nav button,
+        .team-option,
+        .visit-item {
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
 
         /* ===== RESET ===== */
         * {
@@ -803,13 +830,9 @@
             margin-left: 4px;
         }
 
-        /* ===== 이미지 ===== */
+        /* ===== 이미지 제거로 인한 여백 ===== */
         .stadium-img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 16px;
+            display: none;
         }
 
         .detail-footer {
@@ -1943,7 +1966,7 @@
         ];
 
         // ================================================================
-        // 2. DATA — 구장 정보 (상세 좌석 가격 반영)
+        // 2. DATA — 구장 정보 (이미지 제거, 가격 수정 반영)
         // ================================================================
         const stadiums = [{
             id: 0,
@@ -1958,7 +1981,6 @@
             opened: '2015년',
             capacity: '16,783석',
             totalSeats: '22,258명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Gocheok_Sky_Dome_2015.jpg/320px-Gocheok_Sky_Dome_2015.jpg',
             seatInfo: [
                 { name: '스카이박스 (9인실)', desc: '프리미엄', price: '1,170,000원', isSpecial: true },
                 { name: '요기요 R.d-club석', desc: '일반', price: '주중 55,000원 / 주말 85,000원' },
@@ -2003,7 +2025,7 @@
             ],
             꿀팁: [
                 '💡 실내 구장이라 우천 취소 없음!',
-                '💡 홈팀인 키움은 1루 응원석 ,
+                '💡 홈팀인 키움은 1루 응원석',
                 '💡 주차 협소 → 대중교통 추천'
             ],
             mapX: 46,
@@ -2022,7 +2044,6 @@
             opened: '2014년',
             capacity: '20,500석',
             totalSeats: '27,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Gwangju-Kia_Champions_Field.jpg/320px-Gwangju-Kia_Champions_Field.jpg',
             seatInfo: [
                 { name: '챔피언석', desc: '프리미엄', price: '주중 50,000원 / 주말 60,000원' },
                 { name: '서프라이즈석', desc: '할인 혜택', price: '주중 25,000원 / 주말 30,000원' },
@@ -2067,7 +2088,6 @@
             opened: '2016년',
             capacity: '24,331석',
             totalSeats: '29,178명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Daegu_Samsung_Lions_Park.jpg/320px-Daegu_Samsung_Lions_Park.jpg',
             seatInfo: [
                 { name: '1,3루 익사이팅석', desc: '최고급 시야', price: '주중 20,000~22,000원/주말 25,000~30,000원' },
                 { name: '내야 지정석', desc: '1루/3루 지정석', price: '주중 8,000~10,000원/주말 10,000~14,000원' },
@@ -2110,7 +2130,6 @@
             opened: '2025년 (신축)',
             capacity: '22,000석',
             totalSeats: '25,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Daejeon_Hanwha_Life_Ballpark.jpg/320px-Daejeon_Hanwha_Life_Ballpark.jpg',
             seatInfo: [
                 { name: '내야 프리미엄석', desc: '신축 최신 시설', price: '구간별 상이, 홈페이지 참고' },
                 { name: '내야 지정석', desc: '1루/3루 지정석', price: '구간별 상이, 홈페이지 참고' },
@@ -2156,7 +2175,6 @@
             opened: '1985년 (리모델링)',
             capacity: '24,500석',
             totalSeats: '27,500명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Sajik_Baseball_Stadium.jpg/320px-Sajik_Baseball_Stadium.jpg',
             seatInfo: [
                 { name: '그라운드(G-라운드)석', desc: '프리미엄', price: '주중 120,000원 / 주말 150,000원' },
                 { name: '중앙탁자석', desc: '테이블석', price: '주중 40,000원 / 주말 55,000원' },
@@ -2211,7 +2229,6 @@
             opened: '1982년',
             capacity: '24,411석',
             totalSeats: '25,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jamsil_Baseball_Stadium.jpg/320px-Jamsil_Baseball_Stadium.jpg',
             seatInfo: [
                 { name: '프리미엄석', desc: '프리미엄', price: '주중 100,000원 / 주말 100,000원' },
                 { name: '테이블석', desc: '테이블석', price: '주중 56,000원 / 주말 62,000원' },
@@ -2269,7 +2286,6 @@
             opened: '1989년 (리모델링)',
             capacity: '22,067석',
             totalSeats: '25,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Suwon_KT_Wiz_Park.jpg/320px-Suwon_KT_Wiz_Park.jpg',
             seatInfo: [
                 { name: '내야 블루석', desc: '홈팀 KT 응원석', price: '주중 18,000원/주말 22,000원' },
                 { name: '외야 그린석', desc: '가성비 자유석', price: '주중 11,000원/주말 13,000원' },
@@ -2313,7 +2329,6 @@
             opened: '2002년',
             capacity: '23,000석',
             totalSeats: '25,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Incheon_SSG_Landers_Field.jpg/320px-Incheon_SSG_Landers_Field.jpg',
             seatInfo: [
                 { name: '내야 테이블석', desc: '홈팀 SSG 응원석', price: '60,000~70,000원' },
                 { name: '외야 그라운드석', desc: '잔디에서 관람, 돗자리 필수', price: '25,000원' },
@@ -2356,7 +2371,6 @@
             opened: '2019년',
             capacity: '22,112석',
             totalSeats: '22,112명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Changwon_NC_Park.jpg/320px-Changwon_NC_Park.jpg',
             seatInfo: [
                 { name: '내야 블루석', desc: '홈팀 NC 응원석', price: '티켓링크 참고' },
                 { name: '외야 그린석', desc: '가성비 자유석', price: '티켓링크 참고' },
@@ -2406,7 +2420,6 @@
             opened: '1959년 ~ 2007년',
             capacity: '30,000석',
             totalSeats: '30,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Dongdaemun_Baseball_Stadium.jpg/320px-Dongdaemun_Baseball_Stadium.jpg',
             좌석가이드: ['📌 한국 야구의 성지', '📌 1959-2007년 한국 야구의 중심'],
             좌석가이드En: ['📌 Holy ground of Korean baseball', '📌 Center of Korean baseball 1959-2007'],
             주변맛집: [{ name: '동대문 빈대떡', nameEn: 'Dongdaemun Bindaetteok', desc: '빈대떡 맛집', price: '~8,000원',
@@ -2433,7 +2446,6 @@
             opened: '1989년 ~ 2007년',
             capacity: '10,000석',
             totalSeats: '10,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Mokdong_Baseball_Stadium.jpg/320px-Mokdong_Baseball_Stadium.jpg',
             좌석가이드: ['📌 목동의 야구 명소', '📌 1989-2007년 운영'],
             좌석가이드En: ['📌 Mokdong baseball landmark', '📌 Operated 1989-2007'],
             주변맛집: [{ name: '목동 칼국수', nameEn: 'Mokdong Kalguksu', desc: '칼국수 맛집', price: '~9,000원',
@@ -2460,7 +2472,6 @@
             opened: '1960년 ~ 2008년',
             capacity: '12,000석',
             totalSeats: '12,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sungui_Baseball_Stadium.jpg/320px-Sungui_Baseball_Stadium.jpg',
             좌석가이드: ['📌 인천의 옛 야구장', '📌 1960-2008년 인천 야구의 중심'],
             좌석가이드En: ['📌 Incheon\'s old stadium', '📌 Center of Incheon baseball 1960-2008'],
             주변맛집: [{ name: '인천 차이나타운', nameEn: 'Incheon Chinatown', desc: '중국 음식', price: '~12,000원',
@@ -2487,7 +2498,6 @@
             opened: '1948년 ~ 2010년',
             capacity: '10,000석',
             totalSeats: '10,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Daegu_Citizen_Stadium.jpg/320px-Daegu_Citizen_Stadium.jpg',
             좌석가이드: ['📌 대구의 옛 야구장', '📌 1948-2010년 운영'],
             좌석가이드En: ['📌 Daegu\'s old stadium', '📌 Operated 1948-2010'],
             주변맛집: [{ name: '대구 막창', nameEn: 'Daegu Makchang', desc: '막창 맛집', price: '~18,000원',
@@ -2514,7 +2524,6 @@
             opened: '1965년 ~ 2013년',
             capacity: '12,400석',
             totalSeats: '12,400명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mudeung_Baseball_Stadium.jpg/320px-Mudeung_Baseball_Stadium.jpg',
             좌석가이드: ['📌 광주의 옛 야구장', '📌 1965-2013년 운영'],
             좌석가이드En: ['📌 Gwangju\'s old stadium', '📌 Operated 1965-2013'],
             주변맛집: [{ name: '광주 떡갈비', nameEn: 'Gwangju Tteokgalbi', desc: '떡갈비 맛집', price: '~15,000원',
@@ -2541,7 +2550,6 @@
             opened: '1982년 ~ 2018년',
             capacity: '11,000석',
             totalSeats: '11,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Masan_Baseball_Stadium.jpg/320px-Masan_Baseball_Stadium.jpg',
             좌석가이드: ['📌 마산의 옛 야구장', '📌 1982-2018년 운영'],
             좌석가이드En: ['📌 Masan\'s old stadium', '📌 Operated 1982-2018'],
             주변맛집: [{ name: '마산 갈비', nameEn: 'Masan Galbi', desc: '갈비 맛집', price: '~18,000원',
@@ -2568,7 +2576,6 @@
             opened: '1959년 ~ 1985년',
             capacity: '12,000석',
             totalSeats: '12,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Gudeok_Baseball_Stadium.jpg/320px-Gudeok_Baseball_Stadium.jpg',
             좌석가이드: ['📌 부산의 첫 야구장', '📌 1959-1985년 운영'],
             좌석가이드En: ['📌 Busan\'s first stadium', '📌 Operated 1959-1985'],
             주변맛집: [{ name: '부산 밀면', nameEn: 'Busan Milmyeon', desc: '밀면 맛집', price: '~9,000원',
@@ -2595,7 +2602,6 @@
             opened: '1970년 ~ 2000년',
             capacity: '10,000석',
             totalSeats: '10,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jeonju_Stadium.jpg/320px-Jeonju_Stadium.jpg',
             좌석가이드: ['📌 전주의 옛 야구장', '📌 1970-2000년 운영'],
             좌석가이드En: ['📌 Jeonju\'s old stadium', '📌 Operated 1970-2000'],
             주변맛집: [{ name: '전주 비빔밥', nameEn: 'Jeonju Bibimbap', desc: '비빔밥 맛집', price: '~12,000원',
@@ -2625,7 +2631,6 @@
             opened: '2014년',
             capacity: '852석',
             totalSeats: '852명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/LG_Champions_Park.jpg/320px-LG_Champions_Park.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 훈련장 겸 경기장'],
             좌석가이드En: ['📌 Futures games', '📌 Training ground'],
             주변맛집: [{ name: '이천 쌀밥', nameEn: 'Icheon Rice Bowl', desc: '쌀밥 맛집', price: '~10,000원',
@@ -2650,7 +2655,6 @@
             opened: '2014년',
             capacity: '500석',
             totalSeats: '500명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bears_Park.jpg/320px-Bears_Park.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 훈련장 겸 경기장'],
             좌석가이드En: ['📌 Futures games', '📌 Training ground'],
             주변맛집: [{ name: '이천 쌀밥', nameEn: 'Icheon Rice Bowl', desc: '쌀밥 맛집', price: '~10,000원',
@@ -2675,7 +2679,6 @@
             opened: '2015년',
             capacity: '500석',
             totalSeats: '500명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/SSG_Futures_Field.jpg/320px-SSG_Futures_Field.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 최신 시설'],
             좌석가이드En: ['📌 Futures games', '📌 Newest facilities'],
             주변맛집: [{ name: '강화 갯벌', nameEn: 'Ganghwa Seafood', desc: '해산물', price: '~20,000원',
@@ -2700,7 +2703,6 @@
             opened: '2020년',
             capacity: '500석',
             totalSeats: '500명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/KT_Wiz_Park.jpg/320px-KT_Wiz_Park.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 1군 구장 인근'],
             좌석가이드En: ['📌 Futures games', '📌 Near main stadium'],
             주변맛집: [{ name: '수원 왕갈비', nameEn: 'Suwon Wanggalbi', desc: '왕갈비 맛집', price: '~20,000원',
@@ -2725,7 +2727,6 @@
             opened: '2012년',
             capacity: '780석',
             totalSeats: '780명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Seosan_Baseball_Stadium.jpg/320px-Seosan_Baseball_Stadium.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 자연 속에 위치'],
             좌석가이드En: ['📌 Futures games', '📌 Located in nature'],
             주변맛집: [{ name: '서산 갈비', nameEn: 'Seosan Galbi', desc: '갈비 맛집', price: '~17,000원',
@@ -2750,7 +2751,6 @@
             opened: '2013년',
             capacity: '50석',
             totalSeats: '50명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Kia_Challengers_Field.jpg/320px-Kia_Challengers_Field.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 훈련장 겸 경기장'],
             좌석가이드En: ['📌 Futures games', '📌 Training ground'],
             주변맛집: [{ name: '함평 떡갈비', nameEn: 'Hampyeong Tteokgalbi', desc: '떡갈비 맛집', price: '~15,000원',
@@ -2775,7 +2775,6 @@
             opened: '2007년',
             capacity: '100석',
             totalSeats: '100명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sangdong_Baseball_Stadium.jpg/320px-Sangdong_Baseball_Stadium.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 편리한 접근성'],
             좌석가이드En: ['📌 Futures games', '📌 Convenient access'],
             주변맛집: [{ name: '김해 밀면', nameEn: 'Gimhae Milmyeon', desc: '밀면 맛집', price: '~9,000원',
@@ -2800,7 +2799,6 @@
             opened: '1990년',
             capacity: '1,160석',
             totalSeats: '1,160명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Samsung_Lions_Ballpark.jpg/320px-Samsung_Lions_Ballpark.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 최신 시설'],
             좌석가이드En: ['📌 Futures games', '📌 Newest facilities'],
             주변맛집: [{ name: '경산 막창', nameEn: 'Gyeongsan Makchang', desc: '막창 맛집', price: '~18,000원',
@@ -2825,7 +2823,6 @@
             opened: '1982년',
             capacity: '11,000석',
             totalSeats: '11,000명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Masan_Stadium.jpg/320px-Masan_Stadium.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 1군 구장 인근'],
             좌석가이드En: ['📌 Futures games', '📌 Near main stadium'],
             주변맛집: [{ name: '마산 갈비', nameEn: 'Masan Galbi', desc: '갈비 맛집', price: '~18,000원',
@@ -2850,7 +2847,6 @@
             opened: '2014년',
             capacity: '500석',
             totalSeats: '500명',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Goyang_Baseball_Training_Center.jpg/320px-Goyang_Baseball_Training_Center.jpg',
             좌석가이드: ['📌 2군 경기 관람', '📌 최신 시설'],
             좌석가이드En: ['📌 Futures games', '📌 Newest facilities'],
             주변맛집: [{ name: '고양 갈비', nameEn: 'Goyang Galbi', desc: '갈비 맛집', price: '~17,000원',
@@ -3063,16 +3059,23 @@
                     <div class="team-stadium">🏟️ ${displayStadium}</div>
                     <span class="badge" style="background:${t.color};">${lang === 'en' ? 'HOME' : '홈구장'}</span>
                 `;
-                card.addEventListener('click', () => {
-                    const stadium = stadiums.find(s => s.teamKey === t.name.split(' ')[0] || s.team.includes(t
-                        .name.split(' ')[0]));
-                    if (stadium) {
-                        if (stadium.teamKey === '잠실') {
-                            jamsilMode = t.name.includes('LG') ? 'lg' : 'doosan';
+                card.addEventListener('click', function(e) {
+                    // PC 클릭 + 모바일 터치 모두 지원
+                    if (e.type === 'click' || e.type === 'touchstart') {
+                        const stadium = stadiums.find(s => s.teamKey === t.name.split(' ')[0] || s.team.includes(t
+                            .name.split(' ')[0]));
+                        if (stadium) {
+                            if (stadium.teamKey === '잠실') {
+                                jamsilMode = t.name.includes('LG') ? 'lg' : 'doosan';
+                            }
+                            showDetail(stadium.id);
                         }
-                        showDetail(stadium.id);
                     }
                 });
+                // 모바일 터치를 위한 touchstart 이벤트
+                card.addEventListener('touchstart', function(e) {
+                    // passive: false로 설정하여 preventDefault 가능하게
+                }, { passive: true });
                 grid.appendChild(card);
             });
 
@@ -3152,7 +3155,15 @@
                 </div>
             `;
 
-            card.addEventListener('click', () => showDetail(s.id));
+            card.addEventListener('click', function(e) {
+                if (e.type === 'click' || e.type === 'touchstart') {
+                    showDetail(s.id);
+                }
+            });
+            card.addEventListener('touchstart', function(e) {
+                // 터치 지원
+            }, { passive: true });
+
             return card;
         }
 
@@ -3313,9 +3324,6 @@
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             detailSection.classList.add('active');
 
-            const imgHtml = s.image ? `<img src="${s.image}" alt="${name}" class="stadium-img" onerror="this.style.display='none'">` :
-                '';
-
             detailContent.innerHTML = `
                 <div class="detail-cover" style="background: linear-gradient(135deg, ${color}dd 0%, ${color} 100%);">
                     <button class="back-btn" id="backBtn">← ${lang === 'en' ? 'Back to list' : '목록으로'}</button>
@@ -3342,8 +3350,6 @@
                     </div>
                     ` : ''}
 
-                    ${imgHtml}
-
                     <div class="detail-grid">
                         <div class="detail-block" style="border-color:${color};">
                             <h4 style="color:${color};">🪑 ${lang === 'en' ? 'Seat Guide' : '좌석 가이드'}</h4>
@@ -3369,13 +3375,18 @@
                 </div>
             `;
 
-            document.getElementById('backBtn').addEventListener('click', () => {
-                detailSection.classList.remove('active');
-                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                document.getElementById('page-home').classList.add('active');
-                document.querySelector('[data-page="home"]').classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('backBtn').addEventListener('click', function(e) {
+                if (e.type === 'click' || e.type === 'touchstart') {
+                    detailSection.classList.remove('active');
+                    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                    document.getElementById('page-home').classList.add('active');
+                    document.querySelector('[data-page="home"]').classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             });
+            document.getElementById('backBtn').addEventListener('touchstart', function(e) {
+                // 터치 지원
+            }, { passive: true });
 
             document.querySelectorAll('.jamsil-toggle-detail button').forEach(btn => {
                 btn.addEventListener('click', function() {
@@ -3383,6 +3394,9 @@
                     showDetail(currentStadiumId);
                     renderStadiums();
                 });
+                btn.addEventListener('touchstart', function() {
+                    // 터치 지원
+                }, { passive: true });
             });
 
             detailSection.scrollIntoView({ behavior: 'smooth' });
@@ -4011,12 +4025,18 @@
                 if (page === 'inquiry') renderInquiry();
                 if (page === 'home') renderHome();
             });
+            btn.addEventListener('touchstart', function() {
+                // 터치 지원
+            }, { passive: true });
         });
 
         // ================================================================
         // 22. 관리자 버튼
         // ================================================================
         document.getElementById('adminToggleBtn').addEventListener('click', openAdmin);
+        document.getElementById('adminToggleBtn').addEventListener('touchstart', function(e) {
+            // 터치 지원
+        }, { passive: true });
 
         // ================================================================
         // 23. 이벤트
@@ -4026,13 +4046,22 @@
             showOld = !showOld;
             renderStadiums();
         });
+        document.getElementById('oldToggle').addEventListener('touchstart', function() {
+            // 터치 지원
+        }, { passive: true });
 
         document.getElementById('langToggle').addEventListener('click', function() {
             const newLang = currentLang === 'ko' ? 'en' : 'ko';
             applyLanguage(newLang);
         });
+        document.getElementById('langToggle').addEventListener('touchstart', function() {
+            // 터치 지원
+        }, { passive: true });
 
         document.getElementById('darkToggle').addEventListener('click', toggleDarkMode);
+        document.getElementById('darkToggle').addEventListener('touchstart', function() {
+            // 터치 지원
+        }, { passive: true });
 
         // ================================================================
         // 24. 방문자 수 증가
@@ -4078,44 +4107,6 @@
 
         console.log('🏟️ KBO 구장 가이드 로드 완료!');
         console.log('🔐 관리자 비밀번호: kbotrn16717');
-
-        /* ===== 폰 터치 문제 해결 (최종) ===== */
-button,
-.team-card,
-.stadium-card,
-.favorite-btn-banner,
-.jamsil-toggle-detail button,
-.toggle-btn,
-.lang-btn,
-.dark-toggle,
-.login-status,
-.submit-btn,
-.my-btn,
-.auth-submit,
-.admin-toggle-btn,
-.admin-login button,
-.back-btn,
-.kbo-btn,
-.food-more-btn,
-nav button,
-.team-option,
-.visit-item {
-    cursor: pointer;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-/* 터치 영역을 약간 넓게 */
-button,
-.team-card,
-.stadium-card {
-    min-height: 44px;
-    min-width: 44px;
-}
-    });
-});
     </script>
 
 </body>
