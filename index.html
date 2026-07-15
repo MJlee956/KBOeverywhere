@@ -33,32 +33,6 @@
             --kbo-light: #2d2d44;
         }
 
-        /* ===== 폰에서 버튼 터치 문제 해결 ===== */
-button,
-.team-card,
-.stadium-card,
-.favorite-btn-banner,
-.jamsil-toggle-detail button,
-.toggle-btn,
-.lang-btn,
-.dark-toggle,
-.login-status,
-.submit-btn,
-.my-btn,
-.auth-submit,
-.admin-toggle-btn,
-.admin-login button,
-.back-btn,
-.kbo-btn,
-.food-more-btn,
-nav button,
-.team-option,
-.visit-item {
-    cursor: pointer;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-}
 
         /* ===== RESET ===== */
         * {
@@ -1712,7 +1686,7 @@ nav button,
         }
     </style>
 </head>
-<body>
+<body ontouchstart="">
 
     <!-- ===== HEADER ===== -->
     <header>
@@ -4105,22 +4079,41 @@ nav button,
         console.log('🏟️ KBO 구장 가이드 로드 완료!');
         console.log('🔐 관리자 비밀번호: kbotrn16717');
 
-        // ================================================================
-// 폰 터치 이벤트를 클릭으로 변환 (모든 버튼에 적용)
-// ================================================================
-document.addEventListener('DOMContentLoaded', function() {
-    const clickableElements = document.querySelectorAll(
-        'button, .team-card, .stadium-card, .favorite-btn-banner, ' +
-        '.jamsil-toggle-detail button, .toggle-btn, .lang-btn, .dark-toggle, ' +
-        '.login-status, .submit-btn, .my-btn, .auth-submit, .admin-toggle-btn, ' +
-        '.admin-login button, .back-btn, .kbo-btn, .food-more-btn, nav button, ' +
-        '.team-option, .visit-item'
-    );
-    
-    clickableElements.forEach(el => {
-        el.addEventListener('touchstart', function(e) {
-            this.click();
-        }, { passive: true });
+        /* ===== 폰 터치 문제 해결 (최종) ===== */
+button,
+.team-card,
+.stadium-card,
+.favorite-btn-banner,
+.jamsil-toggle-detail button,
+.toggle-btn,
+.lang-btn,
+.dark-toggle,
+.login-status,
+.submit-btn,
+.my-btn,
+.auth-submit,
+.admin-toggle-btn,
+.admin-login button,
+.back-btn,
+.kbo-btn,
+.food-more-btn,
+nav button,
+.team-option,
+.visit-item {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* 터치 영역을 약간 넓게 */
+button,
+.team-card,
+.stadium-card {
+    min-height: 44px;
+    min-width: 44px;
+}
     });
 });
     </script>
